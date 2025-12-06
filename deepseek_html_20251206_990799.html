@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Launchpad Engagement Strategies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #3b5998; /* Facebook blue */
+            --secondary: #1877f2; /* Facebook alternative blue */
+            --accent: #f7b500; /* Gold accent */
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f5f7fa;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            color: var(--primary);
+            font-size: 32px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.9)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #e0e0e0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(247, 181, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #ffca2c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(247, 181, 0, 0.4);
+        }
+
+        /* Services Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-top: 80px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background-color: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            background-color: rgba(59, 89, 152, 0.1);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .service-icon i {
+            font-size: 36px;
+            color: var(--primary);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* Facebook Integration */
+        .facebook-section {
+            background-color: rgba(59, 89, 152, 0.05);
+            padding: 80px 0;
+            margin-bottom: 80px;
+        }
+
+        .facebook-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .facebook-content {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 40px;
+        }
+
+        .facebook-content h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .facebook-preview {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .facebook-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .facebook-header i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .facebook-header h4 {
+            font-size: 16px;
+        }
+
+        .facebook-body {
+            padding: 20px;
+        }
+
+        .facebook-post {
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .facebook-post p {
+            margin-bottom: 15px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            margin-bottom: 80px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 60px;
+            color: rgba(59, 89, 152, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-right: 15px;
+            overflow: hidden;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            border-radius: 15px;
+            margin-bottom: 80px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 20px;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 120px 0 80px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-rocket"></i>
+                <h1>Digital<span>Launchpad</span></h1>
+            </div>
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#facebook">Facebook</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Boost Your Engagement With Strategic Digital Marketing</h2>
+            <p>We help businesses grow their online presence through targeted Facebook engagement strategies, content creation, and data-driven marketing campaigns that deliver real results.</p>
+            <a href="#contact" class="cta-button">Get Your Free Strategy Session</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Engagement Strategies</h2>
+                <p>Comprehensive digital marketing solutions tailored to your business</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <h3>Facebook Engagement</h3>
+                    <p>Increase your Facebook page's reach, comments, shares, and likes with our proven engagement strategies.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Content Strategy</h3>
+                    <p>Develop compelling content that resonates with your target audience and drives meaningful interactions.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Targeted Campaigns</h3>
+                    <p>Create precision-targeted ad campaigns that reach the right people at the right time with the right message.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-analytics"></i>
+                    </div>
+                    <h3>Analytics & Insights</h3>
+                    <p>Track performance with detailed analytics and adjust strategies based on data-driven insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facebook Integration Section -->
+    <section class="facebook-section" id="facebook">
+        <div class="container">
+            <div class="facebook-container">
+                <div class="facebook-content">
+                    <h3>Connect With Us On Facebook</h3>
+                    <p>Our Facebook page is where we share daily tips, case studies, and engagement strategies that actually work.</p>
+                    <p>Join our community of digital marketers and business owners who are learning how to maximize their Facebook presence.</p>
+                    <p>We regularly host live Q&A sessions, share exclusive content, and provide insights you won't find anywhere else.</p>
+                    <a href="https://www.facebook.com/DigitalLaunchpadEngagementStrategies" target="_blank" class="cta-button" style="margin-top: 20px;">
+                        <i class="fab fa-facebook-f"></i> Visit Our Facebook Page
+                    </a>
+                </div>
+                
+                <div class="facebook-preview">
+                    <div class="facebook-header">
+                        <i class="fab fa-facebook-f"></i>
+                        <h4>Digital Launchpad Engagement Strategies</h4>
+                    </div>
+                    <div class="facebook-body">
+                        <div class="facebook-post">
+                            <p><strong>Tip of the Day:</strong> Engage with comments on your posts within the first hour to boost visibility in the algorithm.</p>
+                            <p><small>2 hours ago • 42 likes • 8 comments</small></p>
+                        </div>
+                        <div class="facebook-post">
+                            <p><strong>Live Q&A Alert:</strong> Join us this Thursday at 2 PM EST for a live session on Facebook Ad optimization strategies.</p>
+                            <p><small>1 day ago • 87 likes • 15 comments</small></p>
+                        </div>
+                        <div class="facebook-post">
+                            <p><strong>Case Study:</strong> How we increased engagement by 240% for a local bakery in just 30 days.</p>
+                            <p><small>3 days ago • 124 likes • 23 comments</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Success Stories</h2>
+                <p>See what our clients say about our engagement strategies</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Digital Launchpad transformed our Facebook presence. Our engagement rates increased by 300% in just two months, leading to a significant boost in sales.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div>
+                            <h4>Sarah Johnson</h4>
+                            <p>CEO, Bloom Boutique</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        The targeted strategies implemented by Digital Launchpad helped us connect with our ideal customers. Our cost per lead decreased by 40% while our conversion rate doubled.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div>
+                            <h4>Michael Rodriguez</h4>
+                            <p>Marketing Director, TechFlow Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Working with Digital Launchpad was a game-changer. Their content strategy made our brand stand out, and the community engagement they fostered is invaluable.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div>
+                            <h4>Amanda Chen</h4>
+                            <p>Founder, Wellness Collective</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready To Boost Your Engagement?</h2>
+            <p>Book a free strategy session with our team to discover how we can help you achieve your digital marketing goals with targeted Facebook engagement strategies.</p>
+            <a href="https://www.facebook.com/DigitalLaunchpadEngagementStrategies" target="_blank" class="cta-button">
+                <i class="fab fa-facebook-messenger"></i> Message Us on Facebook
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Digital Launchpad</h3>
+                    <p>Specializing in Facebook engagement strategies and digital marketing solutions that drive real business results.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/DigitalLaunchpadEngagementStrategies" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#facebook">Facebook Strategies</a></li>
+                        <li><a href="#testimonials">Success Stories</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Facebook Engagement</a></li>
+                        <li><a href="#">Content Strategy</a></li>
+                        <li><a href="#">Social Media Management</a></li>
+                        <li><a href="#">Ad Campaign Management</a></li>
+                        <li><a href="#">Analytics & Reporting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Digital Street, Marketing City</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@digitallaunchpad.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM EST</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Digital Launchpad Engagement Strategies. All rights reserved. | Designed to complement our <a href="https://www.facebook.com/DigitalLaunchpadEngagementStrategies" target="_blank" style="color: var(--accent);">Facebook page</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+            
+            // Change icon
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    const nav = document.getElementById('mainNav');
+                    const mobileBtnIcon = document.querySelector('#mobileMenuBtn i');
+                    nav.classList.remove('active');
+                    mobileBtnIcon.classList.remove('fa-times');
+                    mobileBtnIcon.classList.add('fa-bars');
+                    
+                    // Scroll to target
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add active class to nav items on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
